@@ -9,26 +9,30 @@ stages
     {
     steps{
         echo "Building the project..."
+        bat "mvn clean"
     }
     }
     
-    stage('Deploy')
-    {
-    steps{
-        echo "Deploy the project..."
-    }
-    }
+   
     
     stage('Test')
     {
         steps{
         echo "Testing the project..."
+        bat "mvn test"
     }
     }
-    stage('Release')
+    stage('Compile')
     {
     steps{
-        echo "Releasing the project..."
+        echo "compile the project..."
+        bat "mvn compile"
+    }
+    }
+     stage('Deploy')
+    {
+    steps{
+        echo "Deploy the project..."
     }
     }
     
